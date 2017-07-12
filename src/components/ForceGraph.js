@@ -17,8 +17,8 @@ export default class ForceGraph extends React.Component {
         .attr("y2", function(d) { return d.target.y; });
 
       node
-        .style( 'left', d => `${d.x}px`)
-        .style( 'top', d=> `${d.y}px`);
+        .style( 'left', d => `${d.x-8}px`)
+        .style( 'top', d=> `${d.y-5}px`);
     };
 
     function dragstarted(d) {
