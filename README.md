@@ -9,4 +9,6 @@ To include a country, use the following img tag with
 <img src="blank.gif" class="flag flag-cz" alt="Czech Republic" />
 ```
 
+basic d3 force directed graph setup (updated to version 4) [here](https://egghead.io/lessons/react-creating-a-d3-force-layout-in-react-c65fa37c)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
