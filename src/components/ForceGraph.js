@@ -6,6 +6,12 @@ export default class ForceGraph extends React.Component {
     const {width, height, nodes, links} = this.props;
 
     const ticked = () => {
+      link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+        
       node
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
@@ -34,6 +40,13 @@ export default class ForceGraph extends React.Component {
       .style( 'stroke', '#999')
       .style( 'stoke-width', 1.5)
       .style( 'fill', '#555');
+
+    const link = svg.selectAll( 'line')
+      .data( links)
+      .enter()
+      .append( 'line')
+      .attr( 'stroke', 'black')
+      .attr( 'stroke-width', 1);
   };
   render = () => {
     const {width,height} = this.props;
