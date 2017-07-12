@@ -16,7 +16,7 @@ export default class Chart extends React.Component {
   render = () => {
     return (
       <div>{ this.state.nodes.length ?
-      <ForceGraph width={500} height={400}
+      <ForceGraph width={800} height={600}
         nodes={this.state.nodes} links={this.state.links} />
       : <div></div>
       }
