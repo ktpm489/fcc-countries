@@ -53,7 +53,7 @@ export default class ForceGraph extends React.Component {
       .append( 'circle')
       .attr( 'r', 5)
       .style( 'stroke', '#999')
-      .style( 'stoke-width', 1.5)
+      .style( 'stroke-width', 1.5)
       .style( 'fill', '#555')
       .call( d3.drag()
         .on("start", dragstarted)
