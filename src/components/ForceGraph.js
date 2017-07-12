@@ -10,11 +10,14 @@ export default class ForceGraph extends React.Component {
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
     };
-    
+
     const force = d3.forceSimulation();
     force.force("charge", d3.forceManyBody());
     force.force("link", d3.forceLink().id(function(d) { return d.index }));
     force.force("center", d3.forceCenter(width / 2, height / 2));
+    // force.force("collide",d3.forceCollide( function(d){return d.r + 8 }).iterations(16) );
+    force.force("y", d3.forceY(0))
+    .force("x", d3.forceX(0));
     force.nodes( nodes).on("tick", ticked);
     force.force("link").links(links);
 
