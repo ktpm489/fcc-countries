@@ -23,7 +23,7 @@ export default class Chart extends React.Component {
       tooltip_pos: {x: node.x, y: node.y}
     });
   };
-  handleMouseLeave = (node) => {
+  handleMouseLeave = () => {
     this.setState( { tooltip_text: [], tooltip_visible: false});
   };
   render = () => {
