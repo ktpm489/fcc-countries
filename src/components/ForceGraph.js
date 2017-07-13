@@ -56,7 +56,9 @@ export default class ForceGraph extends React.Component {
       .call( d3.drag()
         .on("start", dragstarted)
         .on("drag", dragged)
-        .on("end", dragended));
+        .on("end", dragended))
+      .on( "mouseenter", this.props.handleMouseEnter)
+      .on( "mouseleave", this.props.handleMouseLeave);
 
     const link = svg.selectAll( 'line')
       .data( links)
