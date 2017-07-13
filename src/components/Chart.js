@@ -7,6 +7,7 @@ export default class Chart extends React.Component {
   state = {
     nodes: [],
     links: [],
+    tooltip_enabled: true,
     tooltip_visible: false,
     tooltip_text: [],
     tooltip_pos: {}
@@ -16,6 +17,9 @@ export default class Chart extends React.Component {
     .then( (response) => {
       this.setState( { nodes: response.nodes, links: response.links});
     });
+  };
+  enableTooltip = ( enable) => {
+    this.setState( { tooltip_enabled: enable});
   };
   handleMouseEnter = (node) => {
     this.setState( { tooltip_text: [ node.country],
@@ -27,7 +31,7 @@ export default class Chart extends React.Component {
     this.setState( { tooltip_text: [], tooltip_visible: false});
   };
   render = () => {
-    const tooltip = {display: (this.state.tooltip_visible)?"block":"none",
+    const tooltip = {display: (this.state.tooltip_enabled && this.state.tooltip_visible)?"block":"none",
       left: this.state.tooltip_pos.x,
       top: this.state.tooltip_pos.y,
       padding: "10px"
@@ -37,6 +41,7 @@ export default class Chart extends React.Component {
         <div>
           <ForceGraph width={600} height={600}
             nodes={this.state.nodes} links={this.state.links}
+            enableTooltip={this.enableTooltip}
             handleMouseEnter={this.handleMouseEnter} handleMouseLeave={this.handleMouseLeave} />
           <Tooltip tip_text={this.state.tooltip_text} pos={tooltip} />
         </div>
