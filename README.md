@@ -1,6 +1,6 @@
 fcc project using react and d3 to display a force directed graph. [demo](https://nikrb.github.io/fcc-countries)
 
-country flag image sprite sheet from [here]()
+country flag image sprite sheet from [here](https://www.flag-sprites.com/)
 
 To include a country, use the following img tag with
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes
