@@ -21,10 +21,10 @@ export default class Chart extends React.Component {
   enableTooltip = ( enable) => {
     this.setState( { tooltip_enabled: enable});
   };
-  handleMouseEnter = (node) => {
+  handleMouseEnter = (node, d3event) => {
     this.setState( { tooltip_text: [ node.country],
       tooltip_visible:true,
-      tooltip_pos: {x: node.x, y: node.y}
+      tooltip_pos: {x: d3event.pageX, y: d3event.pageY-30}
     });
   };
   handleMouseLeave = () => {

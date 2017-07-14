@@ -61,7 +61,7 @@ export default class ForceGraph extends React.Component {
         .on("start", this.dragstarted)
         .on("drag", this.dragged)
         .on("end", this.dragended))
-      .on( "mouseenter", this.props.handleMouseEnter)
+      .on( "mouseenter", this.handleMouseEnter)
       .on( "mouseleave", this.props.handleMouseLeave);
 
     this.link = svg.selectAll( 'line')
@@ -72,15 +72,22 @@ export default class ForceGraph extends React.Component {
       .attr( 'stroke-width', 1)
       .attr( 'stroke-opacity', 0.6);
   };
+  handleMouseEnter = ( node) => {
+    this.props.handleMouseEnter( node, d3.event);
+  };
   render = () => {
     const {width,height} = this.props;
     const style = {
       width, height,
-      border: "1px solid #333"
+      border: "1px solid #333",
+      margin: "0 auto"
+    };
+    const flags_style = {
+      position: "absolute"
     };
     return (
       <div style={style} >
-        <div ref="flags_div" />
+        <div ref="flags_div" style={flags_style}/>
         <svg ref="graph_links" style={style} />
       </div>
     );
