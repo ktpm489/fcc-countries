@@ -1,4 +1,4 @@
-fcc project using react and d3 to display a force directed graph.
+fcc project using react and d3 to display a force directed graph. [demo](https://nikrb.github.io/fcc-countries)
 
 country flag image sprite sheet from [here]()
 
