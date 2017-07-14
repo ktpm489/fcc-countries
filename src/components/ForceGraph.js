@@ -23,7 +23,6 @@ export default class ForceGraph extends React.Component {
   };
 
   dragstarted = (d) => {
-    this.props.enableTooltip( false);
     if (!d3.event.active) this.force.alphaTarget(0.3).restart();
     d.fx = d.x;
     d.fy = d.y;
@@ -33,7 +32,6 @@ export default class ForceGraph extends React.Component {
     d.fy = d3.event.y;
   };
   dragended = (d) => {
-    this.props.enableTooltip( true);
     if (!d3.event.active) this.force.alphaTarget(0);
     d.fx = null;
     d.fy = null;
